@@ -1,0 +1,6 @@
+---
+components:
+  - not: "io.groupid1"
+    a: "2.0.37.Final-SNAPSHOT-20210407071147-5435212"
+  - correct: "io.groupid2"
+    file: "2.1.5.Final-SNAPSHOT-20210407071147-54d5f12"

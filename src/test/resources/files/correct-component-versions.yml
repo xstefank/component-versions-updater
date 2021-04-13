@@ -1,0 +1,6 @@
+---
+components:
+- groupId: "io.groupid1"
+  version: "2.0.37.Final-SNAPSHOT-20210407071147-5435212"
+- groupId: "io.groupid2"
+  version: "2.1.5.Final-SNAPSHOT-20210407071147-54d5f12"
