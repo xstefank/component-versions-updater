@@ -19,9 +19,9 @@ import java.util.concurrent.Callable;
 
 @QuarkusMain
 @CommandLine.Command(name = "component-versions-updater", mixinStandardHelpOptions = true, version = "1.0.0")
-public class ComponetVersionsUpdaterMain implements Callable<Integer>, QuarkusApplication {
+public class ComponentVersionsUpdaterMain implements Callable<Integer>, QuarkusApplication {
 
-    private final Logger logger = Logger.getLogger(ComponetVersionsUpdaterMain.class);
+    private final Logger logger = Logger.getLogger(ComponentVersionsUpdaterMain.class);
     private final String homeDir = System.getProperty("user.home");
 
     @Inject
@@ -41,7 +41,7 @@ public class ComponetVersionsUpdaterMain implements Callable<Integer>, QuarkusAp
     }
 
     @Override
-    public Integer call() throws IOException, InterruptedException {
+    public Integer call() throws IOException {
         File inputFile = Paths.get(expandHomeDir(inputFileArg)).toFile();
         pomFile = Paths.get(expandHomeDir(pomFileArg)).toFile();
 
@@ -85,8 +85,6 @@ public class ComponetVersionsUpdaterMain implements Callable<Integer>, QuarkusAp
 
             int exitCode = process.waitFor();
             if (exitCode != 0) {
-                // ok, version was just not found, log for debug
-                logger.info("Sed not successfull for " + component);
                 logger.debug(err);
                 logger.debug("Command exit code was " + exitCode);
             }
